@@ -13,9 +13,7 @@ func listSort(list: inout [Int]) {
         var flag = false
         for j in 0..<(n - i - 1) {
             if list[j] > list[j + 1] {
-                let temp = list[j + 1]
-                list[j + 1] = list[j]
-                list[j] = temp
+                list.swapAt(j, j + 1)
                 flag = true
             }
         }
