@@ -20,19 +20,20 @@ func listSort(list: inout [Int]) {
     // 从index = 1的元素开始计算
     for i in 1..<n {
         let temp = list[i]
+        var insertIndex = i // 目标插入位置
+        
         for j in (0..<i).reversed() {
-            if list[j] > temp { // 比较中间元素并交换位置
-                list[j + 1] = list[j]
-                list[j] = temp
-            }
-            else {
+            if temp > list[j] { // 比较中间元素并交换位置
                 break
             }
+            list[j + 1] = list[j]
+            insertIndex = j
         }
+        list[insertIndex] = temp
     }
 }
 
-var items: [Int] = generateList(count: 2000)
+var items: [Int] = generateList(count: 200)
 let time1 = Date().timeIntervalSince1970 * 1000
 listSort(list: &items)
 let time2 = Date().timeIntervalSince1970 * 1000
