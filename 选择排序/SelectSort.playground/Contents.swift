@@ -1,28 +1,32 @@
 import UIKit
 
-var items: [Int] = []
-
-for _ in 0..<20 {
-    let random = arc4random() % 20
-    items.append(Int(random))
+func generateList(count: Int) -> [Int] {
+    let randomCount = count > 20 ? count : 20
+    var list: [Int] = []
+    for _ in 0..<randomCount {
+        let item = arc4random() % UInt32(randomCount)
+        list.append(Int(item))
+    }
+    return list
 }
-print("randomlist: \(items)") // 随机数组
 
 func listSort(list: inout [Int]) {
     // 边界判断
-    let n = items.count
+    let n = list.count
     if n <= 1 {
         return
     }
     
-    for j in 0..<n {
+    for i in 0..<n {
         // 排序后的最小元素的index
-        guard let minIndex = getMin(list: list, fromIndex:j) else {
+        guard let minIndex = getMin(list: list, fromIndex:i) else {
             return
         }
         
         // 交换最小元素与前一个数的index
-        list.swapAt(minIndex, j)
+        let temp = list[i]
+        list[i] = list[minIndex]
+        list[minIndex] = temp
     }
 }
 
@@ -47,5 +51,12 @@ func getMin(list: [Int], fromIndex: Int) -> Int? {
     return index
 }
 
+var items: [Int] = generateList(count: 2000)
+//print("randomlist: \(items)") // 随机数组
+
+let time1 = Date().timeIntervalSince1970 * 1000
 listSort(list: &items)
+let time2 = Date().timeIntervalSince1970 * 1000
+print("\(Int(time2 - time1)) ms")
+
 print(items)
