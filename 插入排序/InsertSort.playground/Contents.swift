@@ -1,9 +1,15 @@
 import UIKit
 
-var items = [5, 3, 4, 7, 2, 8, 6, 9, 1]
+var items: [Int] = []
+for _ in 0..<20 {
+    let item = arc4random() % 20
+    items.append(Int(item))
+}
+print(items) // 随即数组
 
 func listSort(list: inout [Int]) {
     let n = list.count
+    // 边界判断
     if n <= 1 {
         return
     }
@@ -12,7 +18,7 @@ func listSort(list: inout [Int]) {
     for i in 1..<n {
         let temp = list[i]
         for j in (0..<i).reversed() {
-            if list[j] > temp { // 比较中间元素
+            if list[j] > temp { // 比较中间元素并交换位置
                 list.swapAt(j, j + 1)
             }
             else {
