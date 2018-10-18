@@ -19,15 +19,11 @@ func listSort(list: inout [Int]) {
     
     for i in 0..<n {
         
-        var minIndex = i
-        
-        // 遍历获取最小元素index
-        for j in i..<n {
-            if list[minIndex] > list[j] {
-                minIndex = j
-            }
+        // 获取最小元素index
+        guard let minIndex = getMin(list: list, fromIndex: i) else {
+            return
         }
-    
+        
         // 交换最小元素与前一个数
         let temp = list[i]
         list[i] = list[minIndex]
@@ -35,7 +31,21 @@ func listSort(list: inout [Int]) {
     }
 }
 
-var items: [Int] = generateList(count: 20000)
+func getMin(list: [Int], fromIndex: Int) -> Int? {
+    if fromIndex >= list.count {
+        return nil
+    }
+    
+    var minIndex = fromIndex
+    for i in fromIndex..<list.count {
+        if list[i] < list[minIndex] {
+            minIndex = i
+        }
+    }
+    return minIndex
+}
+
+var items: [Int] = generateList(count: 200)
 //print("randomlist: \(items)") // 随机数组
 
 let time1 = Date().timeIntervalSince1970 * 1000
