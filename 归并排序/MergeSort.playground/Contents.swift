@@ -16,10 +16,15 @@ func listSort(list: [Int]) -> [Int] {
         return list
     }
     
+    // 数组的中间index
     let midIndex = n / 2
+    let leftList = Array(list[0..<midIndex])
+    let rightList = Array(list[midIndex..<n])
+    
+    // 重复拆分左边数组
     let leftArr = listSort(list: leftList)
     
-    let rightList = Array(list[midIndex..<n])
+    // 重复拆分右边边数组
     let rightArr = listSort(list: rightList)
     
     return merge(left: leftArr, right: rightArr)
@@ -38,7 +43,6 @@ func merge(left: [Int], right: [Int]) -> [Int] {
             j += 1
         }
     }
-    //print(result)
     result.append(contentsOf: Array(left[i..<left.count]))
     result.append(contentsOf: Array(right[j..<right.count]))
     return result
