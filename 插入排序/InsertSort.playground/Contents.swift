@@ -15,7 +15,7 @@ func listSort(list: inout [Int]) {
     // 边界判断
     if n <= 1 {
         return
-    }
+    }        
     
     // 从index = 1的元素开始计算
     for i in 1..<n {

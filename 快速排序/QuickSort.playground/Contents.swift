@@ -44,7 +44,7 @@ var items: [Int] = generateList(count: 10)
 //print("randomlist: \(items)") // 随机数组
 
 let time1 = Date().timeIntervalSince1970 * 1000
-listSort(list: &items, left: &0, right: &(items.count - 1)
+listSort(list: &items, left: &0, right: &(items.count - 1))
 let time2 = Date().timeIntervalSince1970 * 1000
 print("\(Int(time2 - time1)) ms")
 

@@ -3,9 +3,9 @@ import UIKit
 class BinaryTreeNode: NSObject {
     var value: Int!
     
-    var leftNode: BinaryTreeNode?
+    var leftNode: BinaryTreeNode? // 左节点
     
-    var rightNode: BinaryTreeNode?
+    var rightNode: BinaryTreeNode? // 右节点
     
     class func createTree(values: [Int]) -> BinaryTreeNode? {
         if values.count < 1 {
@@ -40,14 +40,12 @@ let array = [1, 2, 10, 8, 3, 4, 5, 6, 7, 9]
 let tree = BinaryTreeNode.createTree(values: array)
 print(tree ?? "?")
 
-
 func exchangeNode(node: BinaryTreeNode?) -> BinaryTreeNode {
     
     node?.leftNode = exchangeNode(node: node?.rightNode)
     node?.rightNode = exchangeNode(node: node?.leftNode)
     return BinaryTreeNode()
 }
-
 
 func depthOfBinary(nodeTree: BinaryTreeNode?) -> Int {
     guard let node = nodeTree else {
