@@ -1,5 +1,15 @@
 import UIKit
 
+/*
+ 
+ 1. 从数列中寻找最小值
+ 2. 将最小值和数列最左边的数字进行交换，排序结束。回到1
+ 
+ */
+
+/// 生成随机数组
+/// - Parameter count: 数组长度
+/// - Returns: 返回指定长度的随机整数数组
 func generateList(count: Int) -> [Int] {
     let randomCount = count > 20 ? count : 20
     var list: [Int] = []
@@ -10,6 +20,8 @@ func generateList(count: Int) -> [Int] {
     return list
 }
 
+/// 选择排序
+/// - Parameter list: 数组
 func listSort(list: inout [Int]) {
     // 边界判断
     let n = list.count
@@ -31,6 +43,11 @@ func listSort(list: inout [Int]) {
     }
 }
 
+///从未排序的数组中选择最小值
+/// - Parameters:
+///   - list: 固定长度的数组
+///   - fromIndex: 开始查找的index
+/// - Returns: 返回获取的值对应的index
 func getMin(list: [Int], fromIndex: Int) -> Int? {
     if fromIndex >= list.count {
         return nil
@@ -45,7 +62,7 @@ func getMin(list: [Int], fromIndex: Int) -> Int? {
     return minIndex
 }
 
-var items: [Int] = generateList(count: 200)
+var items: [Int] = generateList(count: 50)
 //print("randomlist: \(items)") // 随机数组
 
 let time1 = Date().timeIntervalSince1970 * 1000
