@@ -30,14 +30,14 @@ func listSort(list: inout [Int]) {
     }
 }
 
-var items: [Int] = generateList(count: 200)
-//print("source data: \(items.count)") // 随机数组
+var items: [Int] = generateList(count: 20)
+print("source data: \(items)") // 随机数组
 
 let time1 = Date().timeIntervalSince1970 * 1000
 listSort(list: &items)
 let time2 = Date().timeIntervalSince1970 * 1000
 print("\(Int(time2 - time1)) ms")
 
-//print("sorted data: \(items)")
+print("sorted data: \(items)")
 
 
