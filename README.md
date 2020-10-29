@@ -12,6 +12,13 @@
 
 - [插入排序](https://github.com/kuroky/Explained-and-Animated-of-Algorithms/blob/master/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/InsertSort.playground/Contents.swift)
 
+```Swift
+// 插入排序
+从index = 1开始依次与左侧数据轮询比较大小
+完成左侧的数据(0-index)的排序
+继续(index+1)后的数据与左侧数据轮询排序
+```
+
 - [选择排序](https://github.com/kuroky/Explained-and-Animated-of-Algorithms/blob/master/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/SelectSort.playground/Contents.swift)
 
 ```Swift
